@@ -13,12 +13,12 @@
 <body>
 <div class="container">
     <h2>Cadastro de Aluno</h2><br/>
-    <form method="post" action="{{url('passports')}}" enctype="multipart/form-data">
+    <form method="post" action="{{url('alunos')}}" enctype="multipart/form-data">
         @csrf
         <div class="row">
             <div class="col-md-4"></div>
             <div class="form-group col-md-4">
-                <label for="Nome">Name:</label>
+                <label for="Nome">Nome:</label>
                 <input type="text" class="form-control" name="nome">
             </div>
         </div>
@@ -40,14 +40,14 @@
             <div class="col-md-4"></div>
             <div class="form-group col-md-4">
                 <strong>Data entrada : </strong>
-                <input class="date form-control"  type="text" id="datepicker" name="date">
+                <input class="date form-control"  type="text" id="datepicker" name="data_entrada">
             </div>
         </div>
         <div class="row">
             <div class="col-md-4"></div>
             <div class="form-group col-md-4">
                 <lable>Estados</lable>
-                <select name="office">
+                <select name="uf">
                     <option value="DF">Distrito Federal</option>
                     <option value="SP">São Paulo</option>
                     <option value="RJ">Rio de Janeiro</option>
@@ -57,8 +57,29 @@
         </div>
         <div class="row">
             <div class="col-md-4"></div>
+            <div class="form-group col-md-4">
+                <label for="cep">CEP:</label>
+                <input type="text" class="form-control" name="cep">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="form-group col-md-4">
+                <label for="endereço">Endereco:</label>
+                <input type="text" class="form-control" name="endereco">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="form-group col-md-4">
+                <label for="bairro">Bairro:</label>
+                <input type="text" class="form-control" name="bairro">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4"></div>
             <div class="form-group col-md-4" style="margin-top:60px">
-                <button type="submit" class="btn btn-success">Submit</button>
+                <button type="submit" class="btn btn-success">Salvar</button>
             </div>
         </div>
     </form>

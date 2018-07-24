@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Aluno extends Model
 {
+    protected $table = 'tb_aluno';
     /**
      * The attributes that are mass assignable.
      *

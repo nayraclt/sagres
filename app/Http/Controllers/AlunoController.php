@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\AlunoRequest;
 use App\Models\Aluno;
+use Illuminate\Http\Request;
 
 class AlunoController extends Controller
 {
@@ -20,8 +21,10 @@ class AlunoController extends Controller
         return view('alunos.create');
     }
 
-    public function store(AlunoRequest $request)
+    public function store(Request $request)
     {
+        $dataEntrada = $this->FormataData($request->data_entrada);
+
         $aluno = new Aluno();
         $aluno->nome        = $request->nome;
         $aluno->matricula = $request->matricula;
@@ -29,9 +32,14 @@ class AlunoController extends Controller
         $aluno->bairro = $request->bairro;
         $aluno->cep = $request->cep;
         $aluno->email = $request->email;
-        $aluno->data_entrada = $request->data_entrada;
+        $aluno->data_entrada = $dataEntrada;
+        $aluno->uf = $request->uf;
         $aluno->save();
         return redirect()->route('alunos.index')->with('message', 'Aluno criado com sucesso!');
     }
 
+
+    private function FormataData($data){
+        return date("Y-m-d H:i:s",strtotime($data));
+    }
 }

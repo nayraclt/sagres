@@ -13,7 +13,7 @@ class CreateNota extends Migration
      */
     public function up()
     {
-        Schema::create('notas', function (Blueprint $table) {
+        Schema::create('tb_nota', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('disciplina_id');
             $table->integer('aluno_id');
@@ -29,6 +29,6 @@ class CreateNota extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('disciplinas');
+        Schema::dropIfExists('tb_nota');
     }
 }

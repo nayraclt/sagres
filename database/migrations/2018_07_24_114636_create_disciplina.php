@@ -13,7 +13,7 @@ class CreateDisciplina extends Migration
      */
     public function up()
     {
-        Schema::create('disciplinas', function (Blueprint $table) {
+        Schema::create('tb_disciplina', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nome')->unique();
             $table->timestamps();
@@ -27,6 +27,6 @@ class CreateDisciplina extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('disciplinas');
+        Schema::dropIfExists('tb_disciplina');
     }
 }

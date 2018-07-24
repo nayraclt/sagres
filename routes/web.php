@@ -15,6 +15,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('alunos', 'AlunoController@index');
-Route::get('alunos-create', 'AlunoController@create');
+Route::resource('alunos', 'AlunoController');
 

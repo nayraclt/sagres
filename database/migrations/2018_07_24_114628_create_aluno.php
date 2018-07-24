@@ -13,7 +13,7 @@ class CreateAluno extends Migration
      */
     public function up()
     {
-        Schema::create('alunos', function (Blueprint $table) {
+        Schema::create('tb_aluno', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nome');
             $table->string('matricula')->unique();
@@ -34,6 +34,6 @@ class CreateAluno extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('alunos');
+        Schema::dropIfExists('tb_aluno');
     }
 }
