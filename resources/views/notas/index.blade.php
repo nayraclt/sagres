@@ -17,37 +17,31 @@
             {{ session()->get('message') }}
         </div>
     @endif
-    <h2>Lista de alunos</h2><br/>
-        <a href="/alunos/create" class="btn btn-primary" style="margin: 10px;">Novo Aluno</a>
+    <h2>Notas do Aluno: {{$aluno->nome}}</h2><br/>
+        <a href="/notas/create?id_aluno={{$aluno->id}}" class="btn btn-primary" style="margin: 10px;">Lançar Nota</a>
 
     <table class="table table-hover table-active">
         <thead>
         <tr>
-            <th> Matrícula</th>
-            <th> Nome</th>
-            <th> Email  </th>
-            <th> UF </th>
-            <th> CEP </th>
-            <th> Endereço </th>
-            <th> Bairro </th>
-            <th> Ação </th>
+            <th> Disciplina</th>
+            <th> Nota</th>
         </tr>
         </thead>
         <tbody>
-        @foreach($alunos as $aluno)
+        @foreach($notas as $nota)
             <tr>
-                <td> {{$aluno->matricula}} </td>
-                <td> {{$aluno->nome}} </td>
-                <td> {{$aluno->email}} </td>
-                <td> {{$aluno->uf}} </td>
-                <td> {{$aluno->cep}} </td>
-                <td> {{$aluno->endereco}} </td>
-                <td> {{$aluno->bairro}} </td>
-                <td> <a href='/notas?aluno={{$aluno->id}}'>Notas</a> </td>
+                <td> {{$nota->nome}} </td>
+                <td> {{$nota->nota}} </td>
             </tr>
         @endforeach
         </tbody>
     </table>
+        <h3>Média das notas</h3>
+
+        @foreach($mediaNotas as $nota)
+        <span>{{$nota['nomeDisciplina']}} - {{$nota['mediaNotas']}}</span>
+            <br/>
+        @endforeach
 </div>
 </body>
 </html>
