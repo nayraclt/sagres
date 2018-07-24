@@ -11,6 +11,14 @@ class DisciplinaTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        DB::table('tb_disciplina')->insert([
+            'nome' => 'Física',
+        ]);
+        DB::table('tb_disciplina')->insert([
+            'nome' => 'Matematica',
+        ]);
+        DB::table('tb_disciplina')->insert([
+            'nome' => 'Português',
+        ]);
     }
 }
