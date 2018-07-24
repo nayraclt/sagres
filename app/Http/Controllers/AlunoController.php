@@ -12,7 +12,7 @@ class AlunoController extends Controller
 
     public function index()
     {
-        $alunos = Aluno::orderBy('nome', 'asc')->paginate(10);
+        $alunos = $this->listarAlunos();
         return view('alunos.index',['alunos' => $alunos]);
     }
 
@@ -41,5 +41,14 @@ class AlunoController extends Controller
 
     private function FormataData($data){
         return date("Y-m-d H:i:s",strtotime($data));
+    }
+
+    private function listarAlunos(){
+        return Aluno::orderBy('nome', 'asc')->paginate(10);
+    }
+
+    public function ListarAlunosJson(){
+        $alunos = $this->listarAlunos();
+        return response()->json($alunos);
     }
 }
